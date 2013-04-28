@@ -1,0 +1,21 @@
+{
+    "name": "phramz/commons",
+    "type": "library",
+    "description": "Util Library",
+    "keywords": ["commons", "util", "stream", "propertyutils", "propertywriter", "propertyreader"],
+    "homepage": "https://github.com/Phramz/commons",
+    "license": "LGPL v3",
+    "authors": [
+        {
+            "name": "Maximilian Reichel",
+            "email": "mr@phramz.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.17"
+    },
+    "autoload": {
+        "psr-0": { "Phramz\\Commons": "src/" }
+    },
+    "minimum-stability": "dev"
+}
