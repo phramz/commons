@@ -1,4 +1,4 @@
-# Phramz/Commons [![Build Status](https://travis-ci.org/Phramz/commons.png?branch=master)](https://travis-ci.org/Phramz/commons.png)
+# Phramz/Commons [![Build Status](https://travis-ci.org/Phramz/commons.png?branch=master)](https://travis-ci.org/Phramz/commons)
 
 Commons is a php-library that comes with some handy utilities to ease your daily coding-business.
 
