@@ -80,7 +80,6 @@ $example = new User();
 
 Now, maybe you want to access the private member `name`
 ``` php
-<?php
 // get an instance of PropertyUtils
 $propertyUtils = new PropertyUtils();
 
@@ -88,13 +87,12 @@ $propertyUtils->getProperty('name', $example); // will return 'foo'
 ```
 
 Wow! Not very exciting, as long as you could call `getName()` directly, right!? But what if you have an abritary
-object and you do not know exactly if there is a public Method `getName()` or maybe `name` is just a public member
+object and you do not know exactly if there is a public method `getName()` or maybe `name` is just a public member
 and therefore no need for getter? The object may not even have a member by the name of `name` and implements
 `ArrayAccess`? The `getProperty()` - method can deal with all of these usecases.
 
 Well, by the same way you can also set `name` to another value:
 ``` php
-<?php
 // get an instance of PropertyUtils
 $propertyUtils = new PropertyUtils();
 
@@ -105,16 +103,14 @@ $example->getName(); // ... will also return 'bar'
 
 If you need to you can also access nested members like `email` at any depth by using the path seperator `.`
 ``` php
-<?php
 // get an instance of PropertyUtils
 $propertyUtils = new PropertyUtils();
 
 $propertyUtils->getProperty('contact.email', $example); // will return 'info@phramz.com'
 ```
 
-Do you need to deal with array? No problem, at all:
+Do you need to deal with arrays? No problem, at all:
 ``` php
-<?php
 // if our User-object were an array it would look like this
 $example = array(
     'name' => 'foo',
@@ -132,9 +128,8 @@ $propertyUtils->getProperty('contact.email', $example); // will still return 'in
 ```
 
 There is one difference if you're working with arrays due these values are no references like objects. So
-if we want to set a new value to member we need to save the manipulated array.
+if we want to set a new value to a member we need to save the manipulated array.
 ``` php
-<?php
 // get an instance of PropertyUtils
 $propertyUtils = new PropertyUtils();
 
