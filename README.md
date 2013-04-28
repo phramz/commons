@@ -78,7 +78,7 @@ class User
 $example = new User();
 ```
 
-Now, maybe you want to access the private member 'name'
+Now, maybe you want to access the private member `name`
 ``` php
 <?php
 // get an instance of PropertyUtils
@@ -103,7 +103,7 @@ $propertyUtils->getProperty('name', $example); // will now return 'bar' ... as w
 $example->getName(); // ... will also return 'bar'
 ```
 
-If you need to you can also access nested members like `email` at any depth:
+If you need to you can also access nested members like `email` at any depth by using the path seperator `.`
 ``` php
 <?php
 // get an instance of PropertyUtils
@@ -112,7 +112,7 @@ $propertyUtils = new PropertyUtils();
 $propertyUtils->getProperty('contact.email', $example); // will return 'info@phramz.com'
 ```
 
-Do you need to deal with array? No Problem:
+Do you need to deal with array? No problem, at all:
 ``` php
 <?php
 // if our User-object were an array it would look like this
