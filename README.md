@@ -98,7 +98,7 @@ Well, by the same way you can also set `name` to another value:
 // get an instance of PropertyUtils
 $propertyUtils = new PropertyUtils();
 
-$propertyUtils->setProperty('name', 'bar' $example);
+$propertyUtils->setProperty('name', 'bar', $example);
 $propertyUtils->getProperty('name', $example); // will now return 'bar' ... as well as
 $example->getName(); // ... will also return 'bar'
 ```
@@ -139,7 +139,7 @@ if we want to set a new value to member we need to save the manipulated array.
 $propertyUtils = new PropertyUtils();
 
 // setProperty() will return the manipulated array, so we write it back to $example
-$example = $propertyUtils->setProperty('name', 'bar' $example);
+$example = $propertyUtils->setProperty('name', 'bar', $example);
 
 $propertyUtils->getProperty('name', $example); // will return 'bar' ... as well as
 $example->getName(); // ... will also return 'bar'
