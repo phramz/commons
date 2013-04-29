@@ -124,7 +124,7 @@ $propertyUtils = new PropertyUtils();
 $propertyUtils->getProperty('contact.email', $example); // will return 'info@phramz.com'
 ```
 
-Do you need to deal with arrays? No problem, at all:
+Do you need to deal with arrays? No problem at all:
 ``` php
 // if our User-object were an array it would look like this
 $example = array(
