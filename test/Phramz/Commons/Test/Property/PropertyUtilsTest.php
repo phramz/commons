@@ -30,6 +30,104 @@ class PropertyUtilsTest extends AbstractTestCase
 {
     /**
      * @test
+     * @dataProvider findSetterDataProvider
+     */
+    public function testFindSetter($property, $getter, $test)
+    {
+        $propertyUtils = new PropertyUtils();
+
+        $this->assertEquals($getter, $propertyUtils->findSetter($test, $property));
+    }
+
+    public function findSetterDataProvider()
+    {
+        return array(
+            array('foo', null, $this->getFixtureStdClass()),
+            array('bar', null, $this->getFixtureStdClass()),
+            array('', null, $this->getFixtureStdClass()),
+            array(null, null, $this->getFixtureStdClass()),
+            array('foo', null, $this->getFixtureArray()),
+            array('bar', null, $this->getFixtureArray()),
+            array('', null, $this->getFixtureArray()),
+            array(null, null, $this->getFixtureArray()),
+            array('foo', null, $this->getFixtureArrayAccess()),
+            array('bar', null, $this->getFixtureArrayAccess()),
+            array('', null, $this->getFixtureArrayAccess()),
+            array(null, null, $this->getFixtureArrayAccess()),
+            array('foo', 'setFoo', $this->getFixturePopo()),
+            array('bar', 'setBar', $this->getFixturePopo()),
+            array('foobar', 'setFoobar', $this->getFixturePopo()),
+            array('bazz', 'setBazz', $this->getFixturePopo()),
+            array('', null, $this->getFixturePopo()),
+            array(null, null, $this->getFixturePopo())
+        );
+    }
+
+    /**
+     * @test
+     * @dataProvider findGetterDataProvider
+     */
+    public function testFindGetter($property, $getter, $test)
+    {
+        $propertyUtils = new PropertyUtils();
+
+        $this->assertEquals($getter, $propertyUtils->findGetter($test, $property));
+    }
+
+    public function findGetterDataProvider()
+    {
+        return array(
+            array('foo', null, $this->getFixtureStdClass()),
+            array('bar', null, $this->getFixtureStdClass()),
+            array('', null, $this->getFixtureStdClass()),
+            array(null, null, $this->getFixtureStdClass()),
+            array('foo', null, $this->getFixtureArray()),
+            array('bar', null, $this->getFixtureArray()),
+            array('', null, $this->getFixtureArray()),
+            array(null, null, $this->getFixtureArray()),
+            array('foo', null, $this->getFixtureArrayAccess()),
+            array('bar', null, $this->getFixtureArrayAccess()),
+            array('', null, $this->getFixtureArrayAccess()),
+            array(null, null, $this->getFixtureArrayAccess()),
+            array('foo', 'getFoo', $this->getFixturePopo()),
+            array('bar', 'getBar', $this->getFixturePopo()),
+            array('foobar', 'hasFoobar', $this->getFixturePopo()),
+            array('bazz', 'isBazz', $this->getFixturePopo()),
+            array('', null, $this->getFixturePopo()),
+            array(null, null, $this->getFixturePopo())
+        );
+    }
+
+    /**
+     * @test
+     * @dataProvider hasPropertyDataProvider
+     */
+    public function testHasProperty(array $assertTrue, array $assertFalse, $test)
+    {
+        $propertyUtils = new PropertyUtils();
+
+        foreach ($assertTrue as $property) {
+            $this->assertTrue($propertyUtils->hasProperty($property, $test));
+        }
+
+        foreach ($assertFalse as $property) {
+            $this->assertFalse($propertyUtils->hasProperty($property, $test));
+        }
+    }
+
+    public function hasPropertyDataProvider()
+    {
+        return array(
+            array(array('foo', 'bar'), array('foobar', '', null), $this->getFixtureStdClass()),
+            array(array('foo', 'bar'), array('foobar', '', null), $this->getFixtureArray()),
+            array(array('foo', 'bar'), array('foobar', '', null), $this->getFixtureArrayAccess()),
+            array(array('foo', 'bar', 'foobar'), array('foobar!', '', null), $this->getFixturePopo()),
+            array(array(0, 1, 2, 3, 4), array(-1, 5, 6, null, '', 'foo', 'bar'), $this->getFixtureIndexedArray())
+        );
+    }
+
+    /**
+     * @test
      * @dataProvider setPropertyDataProvider
      */
     public function testSetProperty($property, $value, $expected, $test)

@@ -123,6 +123,10 @@ abstract class AbstractPropertyAccess
 
         // public property exists?
         if (is_object($target)) {
+            if ($target instanceof \stdClass && isset($target->$property)) {
+                return true;
+            }
+
             $reflection = new ReflectionClass($target);
             if ($reflection->hasProperty($property)) {
                 $property = $reflection->getProperty($property);

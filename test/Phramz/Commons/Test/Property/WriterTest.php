@@ -52,7 +52,12 @@ class WriterTest extends AbstractTestCase
     {
         return array(
             array(array('bar', 'foo', 'foo', 'bar'), 'bar.foo.foo.bar!!!', $this->getFixtureMixed()),
-            array(array('bar', 'bazz', '4', 'bar'), 'bar.bazz.4.bar!!!', $this->getFixtureMixed())
+            array(array('bar', 'bazz', '4', 'bar'), 'bar.bazz.4.bar!!!', $this->getFixtureMixed()),
+            array(array('foo', 'foo', 'foo', 'bar'), 'foo.foo.foo.bar!!!', $this->getFixtureMixed()),
+            array(array('foo', 'bazz', '4', 'bar'), 'foo.bazz.4.bar!!!', $this->getFixtureMixed()),
+            array(array(), null, $this->getFixtureMixed()),
+            array(array('foo', 'bar'), 'foo.bar!!!', array('foo' => array('bar' => 'bazz'))),
+            array(array(), null, array('foo' => array('bar' => 'bazz')))
         );
     }
 }

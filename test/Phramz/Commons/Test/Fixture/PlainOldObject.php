@@ -26,6 +26,8 @@ class PlainOldObject
 {
     private $foo;
     private $bar;
+    private $bazz;
+    private $foobar;
 
     public function __construct($foo = null, $bar = null)
     {
@@ -52,4 +54,26 @@ class PlainOldObject
     {
         return $this->foo;
     }
+
+    public function setBazz($bazz)
+    {
+        $this->bazz = $bazz;
+    }
+
+    public function isBazz()
+    {
+        return $this->bazz;
+    }
+
+    public function setFoobar($foobar)
+    {
+        $this->foobar = $foobar;
+    }
+
+    public function hasFoobar()
+    {
+        return $this->foobar;
+    }
+
+
 }

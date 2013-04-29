@@ -115,9 +115,6 @@ class Writer extends AbstractPropertyAccess implements WriterInterface
         } elseif ($target instanceof \ArrayAccess && $target->offsetExists($property)) {
             $target->offsetSet($property, $value);
         } elseif ($this->isAccessable($property, $target)) {
-            $reflection = new \ReflectionProperty($target, $property);
-            $reflection->setValue($target, $value);
-        } elseif ($target instanceof \stdClass) {
             $target->$property = $value;
         }
 
