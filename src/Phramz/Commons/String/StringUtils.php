@@ -14,15 +14,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with Phramz.  If not, see <http://www.gnu.org/licenses/lgpl.txt>.
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
 namespace Phramz\Commons\String;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-class StringUtils 
+class StringUtils
 {
     /**
      * Returns n ($length) chars from the end of $string
@@ -83,8 +83,7 @@ class StringUtils
         return $this->match(
             $haystack,
             $needle,
-            function($haystack, $needle)
-            {
+            function ($haystack, $needle) {
                 return $haystack == $needle || strpos($haystack, $needle . '-') === 0;
             }
         );
@@ -102,8 +101,7 @@ class StringUtils
         return $this->match(
             $haystack,
             $needle,
-            function($haystack, $needle)
-            {
+            function ($haystack, $needle) {
                 return strpos($haystack, $needle) !== false;
             }
         );
@@ -122,8 +120,7 @@ class StringUtils
         return $this->match(
             $haystack,
             $needle,
-            function($haystack, $needle)
-            {
+            function ($haystack, $needle) {
                 return preg_match('/\\b' . preg_quote($needle, '/') . '\\b/', $haystack);
             }
         );
@@ -141,8 +138,7 @@ class StringUtils
         return $this->match(
             $haystack,
             $needle,
-            function($haystack, $needle)
-            {
+            function ($haystack, $needle) {
                 return preg_match('/^' . preg_quote($needle, '/') . '/', $haystack);
             }
         );
@@ -160,8 +156,7 @@ class StringUtils
         return $this->match(
             $haystack,
             $needle,
-            function($haystack, $needle)
-            {
+            function ($haystack, $needle) {
                 return preg_match('/' . preg_quote($needle, '/') . '$/', $haystack);
             }
         );
