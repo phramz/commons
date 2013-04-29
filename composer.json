@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Util Library",
     "keywords": ["commons", "util", "stream", "propertyutils", "propertywriter", "propertyreader"],
-    "homepage": "https://github.com/Phramz/commons",
+    "homepage": "https://github.com/phramz/commons",
     "license": "LGPL v3",
     "authors": [
         {
