@@ -5,7 +5,22 @@ Commons is a php-library that comes with some handy utilities to ease your daily
 Install
 ------
 
-It's easy if you use composer! Just require `phramz/commons` in your `composer.json`.
+It's easy if you use composer!
+
+edit your `composer.json`
+
+``` json
+"require" : {
+    "phramz/commons" : "*"
+}  
+```
+
+or via command line
+
+```
+php composer.phar require phramz/commons
+```
+
 
 Examples
 ------
