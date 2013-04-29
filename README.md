@@ -1,4 +1,4 @@
-# Phramz/Commons [![Build Status](https://travis-ci.org/Phramz/commons.png?branch=master)](https://travis-ci.org/Phramz/commons)
+# Phramz/Commons [![Build Status](https://travis-ci.org/phramz/commons.png?branch=master)](https://travis-ci.org/phramz/commons)
 
 Commons is a php-library that comes with some handy utilities to ease your daily coding-business.
 
@@ -12,7 +12,7 @@ edit your `composer.json`
 ``` json
 "require" : {
     "phramz/commons" : "*"
-}  
+}
 ```
 
 or via command line
@@ -36,22 +36,22 @@ class Contact
 {
     private $email = 'info@phramz.com';
     private $phone = '123'
-    
+
     public function getEmail()
     {
         return $this->email;
     }
-    
+
     public function setEmail($email)
     {
         $this->email = $email;
     }
-    
+
     public function getPhone()
     {
         return $this->phone;
     }
-    
+
     public function setPhone($phone)
     {
         $this->phone = $phone;
