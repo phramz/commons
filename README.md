@@ -10,8 +10,8 @@ It's easy if you use composer!
 edit your `composer.json`
 
 ``` json
-"require" : {
-    "phramz/commons" : "*"
+"require": {
+    "phramz/commons": "*"
 }
 ```
 
