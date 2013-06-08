@@ -17,43 +17,26 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
-namespace Phramz\Commons\Stream;
+namespace Phramz\Commons\Api;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-interface InputStreamInterface
+interface Writer
 {
     /**
-     * Returns the number of bytes that can be read or skipped over.
+     * Sets a value to an object or array by it property-path. Property-names
+     * are seperated by a dot '.' e.g.
+     * write(array('foo', 'bar'), 'bazz', array('foo' => array ('bar' => 'foobar!')))
+     * => will return array('foo' => array ('bar' => 'bazz'))
+     * write('array('1', 'bar'), 'foobar!', array(array('foo'), array('bar' => 'bazz!')))
+     * => will return array(array('foo'), array('bar' => 'foobar!'))
+     * The same goes for any kind of object by its getter or public properties.
      *
-     * @return integer number of bytes
+     * @param array $path The path to the roperty
+     * @param mixed $value The new value to set
+     * @param array|object $target The array or object to retrieve the value from
+     * @return mixed The processed target
      */
-    public function readable();
-
-    /**
-     * Closes this input stream.
-     */
-    public function close();
-
-    /**
-     * Resets this input stream.
-     */
-    public function reset();
-
-    /**
-     * Reads the next n bytes from offset
-     *
-     * @param integer $bytes maximum number of bytes to read
-     * @return string the data read from this input stream
-     */
-    public function read($bytes = 1);
-
-    /**
-     * Discards n bytes of data.
-     *
-     * @param integer $bytes Number of bytes to skip
-     * @return integer number of skipped bytes
-     */
-    public function skip($bytes = 1);
+    public function write(array $path, $value, $target);
 }

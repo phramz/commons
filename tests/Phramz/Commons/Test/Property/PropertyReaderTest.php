@@ -19,25 +19,25 @@
  */
 namespace Phramz\Commons\Test\Property;
 
-use Phramz\Commons\Property\Reader;
+use Phramz\Commons\Property\PropertyReader;
 use Phramz\Commons\Test\AbstractTestCase;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
- * @covers Phramz\Commons\Property\Reader<extended>
+ * @covers Phramz\Commons\Property\PropertyReader<extended>
  */
-class ReaderTest extends AbstractTestCase
+class PropertyReaderTest extends AbstractTestCase
 {
     public function testConstruct()
     {
-        $reader = new Reader();
+        $reader = new PropertyReader();
 
-        $this->assertInstanceOf('Phramz\Commons\Property\ReaderInterface', $reader);
+        $this->assertInstanceOf('Phramz\Commons\Api\Reader', $reader);
     }
 
     public function testRead()
     {
-        $reader = new Reader();
+        $reader = new PropertyReader();
 
         $test = $this->getFixtureMixed();
 

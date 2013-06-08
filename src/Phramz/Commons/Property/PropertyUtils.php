@@ -19,31 +19,33 @@
  */
 namespace Phramz\Commons\Property;
 
+use Phramz\Commons\Api\Reader;
+
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
 class PropertyUtils extends AbstractPropertyAccess
 {
     /**
-     * @var ReaderInterface
+     * @var Reader
      */
     private $reader;
 
     /**
-     * @var WriterInterface
+     * @var PropertyWriter
      */
     private $writer;
 
     /**
      * constructor
      *
-     * @param ReaderInterface $reader optional writer-injection
-     * @param WriterInterface $writer optional reader-injection
+     * @param Reader $reader optional writer-injection
+     * @param PropertyWriter $writer optional reader-injection
      */
-    public function __construct(ReaderInterface $reader = null, WriterInterface $writer = null)
+    public function __construct(Reader $reader = null, PropertyWriter $writer = null)
     {
-        $this->reader = $reader ? $reader : new Reader();
-        $this->writer = $writer ? $writer : new Writer();
+        $this->reader = $reader ? $reader : new PropertyReader();
+        $this->writer = $writer ? $writer : new PropertyWriter();
     }
 
     /**

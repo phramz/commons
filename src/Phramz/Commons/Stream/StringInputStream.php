@@ -21,11 +21,12 @@ namespace Phramz\Commons\Stream;
 
 use InvalidArgumentException;
 use OutOfBoundsException;
+use Phramz\Commons\Api\Markable;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-class StringInputStream implements MarkableInputStreamInterface
+class StringInputStream implements Markable
 {
     private $string = null;
     private $offset = 0;

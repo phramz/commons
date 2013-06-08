@@ -19,23 +19,35 @@
  */
 namespace Phramz\Commons\Property;
 
+use Phramz\Commons\Api\Reader;
+
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-interface ReaderInterface
+class PropertyReader extends AbstractPropertyAccess implements Reader
 {
     /**
-     * Retrives a value from an object or array by it property-path. Property-names
-     * are seperated by a dot '.' e.g.
-     * read(array('foo', 'bar'), array ('foo' => array ('bar' => 'foobar!')))
-     * => will return 'foobar!'
-     * read(array('1', 'bar'), array(array('foo'), array('bar' => 'bazz!')))
-     * => will return 'bazz!'
-     * The same goes for any kind of object by its getter or public properties.
-     *
-     * @param array $path The path to the roperty
-     * @param array|object $target The array or object to retrieve the value from
-     * @return mixed The value or NULL if the property not accessable
+     * (non-PHPdoc)
+     * @see ReaderInterface::read()
      */
-    public function read(array $path, $target);
+    public function read(array $path, $target)
+    {
+        foreach ($path as $property) {
+            $value = null;
+
+            if (is_array($target)) {
+                $value = $this->getPropertyFromArray($property, $target);
+            } elseif (is_object($target)) {
+                $value = $this->getPropertyFromObject($property, $target);
+            }
+
+            if ($value===null) {
+                break;
+            }
+
+            $target = $value;
+        }
+
+        return isset($value) ? $value : null;
+    }
 }

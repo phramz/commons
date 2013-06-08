@@ -17,26 +17,27 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
-namespace Phramz\Commons\Property;
+namespace Phramz\Commons\Api;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-interface WriterInterface
+interface Markable extends InputStream
 {
     /**
-     * Sets a value to an object or array by it property-path. Property-names
-     * are seperated by a dot '.' e.g.
-     * write(array('foo', 'bar'), 'bazz', array('foo' => array ('bar' => 'foobar!')))
-     * => will return array('foo' => array ('bar' => 'bazz'))
-     * write('array('1', 'bar'), 'foobar!', array(array('foo'), array('bar' => 'bazz!')))
-     * => will return array(array('foo'), array('bar' => 'foobar!'))
-     * The same goes for any kind of object by its getter or public properties.
-     *
-     * @param array $path The path to the roperty
-     * @param mixed $value The new value to set
-     * @param array|object $target The array or object to retrieve the value from
-     * @return mixed The processed target
+     * Marks the current position
      */
-    public function write(array $path, $value, $target);
+    public function mark($readlimit = 0);
+
+    /**
+     * Resets the pointer to the last mark
+     */
+    public function reset();
+
+    /**
+     * Returns the absolute offset from the start of this stream
+     *
+     * @return integer the offset
+     */
+    public function offset();
 }

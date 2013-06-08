@@ -17,27 +17,43 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
-namespace Phramz\Commons\Stream;
+namespace Phramz\Commons\Api;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-interface MarkableInputStreamInterface extends InputStreamInterface
+interface InputStream
 {
     /**
-     * Marks the current position
+     * Returns the number of bytes that can be read or skipped over.
+     *
+     * @return integer number of bytes
      */
-    public function mark($readlimit = 0);
+    public function readable();
 
     /**
-     * Resets the pointer to the last mark
+     * Closes this input stream.
+     */
+    public function close();
+
+    /**
+     * Resets this input stream.
      */
     public function reset();
 
     /**
-     * Returns the absolute offset from the start of this stream
+     * Reads the next n bytes from offset
      *
-     * @return integer the offset
+     * @param integer $bytes maximum number of bytes to read
+     * @return string the data read from this input stream
      */
-    public function offset();
+    public function read($bytes = 1);
+
+    /**
+     * Discards n bytes of data.
+     *
+     * @param integer $bytes Number of bytes to skip
+     * @return integer number of skipped bytes
+     */
+    public function skip($bytes = 1);
 }

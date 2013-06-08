@@ -19,10 +19,12 @@
  */
 namespace Phramz\Commons\Property;
 
+use Phramz\Commons\Api\Writer;
+
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-class Writer extends AbstractPropertyAccess implements WriterInterface
+class PropertyWriter extends AbstractPropertyAccess implements Writer
 {
     /**
      * (non-PHPdoc)

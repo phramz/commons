@@ -19,21 +19,21 @@
  */
 namespace Phramz\Commons\Test\Property;
 
-use Phramz\Commons\Property\Reader;
-use Phramz\Commons\Property\Writer;
+use Phramz\Commons\Property\PropertyReader;
+use Phramz\Commons\Property\PropertyWriter;
 use Phramz\Commons\Test\AbstractTestCase;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
- * @covers Phramz\Commons\Property\Writer<extended>
+ * @covers Phramz\Commons\Property\PropertyWriter<extended>
  */
-class WriterTest extends AbstractTestCase
+class PropertyWriterTest extends AbstractTestCase
 {
     public function testConstruct()
     {
-        $writer = new Writer();
+        $writer = new PropertyWriter();
 
-        $this->assertInstanceOf('Phramz\Commons\Property\WriterInterface', $writer);
+        $this->assertInstanceOf('Phramz\Commons\Api\Writer', $writer);
     }
 
     /**
@@ -41,8 +41,8 @@ class WriterTest extends AbstractTestCase
      */
     public function testWrite($propertyPath, $value, $test)
     {
-        $writer = new Writer();
-        $reader = new Reader();
+        $writer = new PropertyWriter();
+        $reader = new PropertyReader();
 
         $test = $writer->write($propertyPath, $value, $test);
         $this->assertEquals($value, $reader->read($propertyPath, $test));

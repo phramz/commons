@@ -17,35 +17,25 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
-namespace Phramz\Commons\Property;
+namespace Phramz\Commons\Api;
 
 /**
  * @author Maximilian Reichel <mr@phramz.com>
  */
-class Reader extends AbstractPropertyAccess implements ReaderInterface
+interface Reader
 {
     /**
-     * (non-PHPdoc)
-     * @see ReaderInterface::read()
+     * Retrives a value from an object or array by it property-path. Property-names
+     * are seperated by a dot '.' e.g.
+     * read(array('foo', 'bar'), array ('foo' => array ('bar' => 'foobar!')))
+     * => will return 'foobar!'
+     * read(array('1', 'bar'), array(array('foo'), array('bar' => 'bazz!')))
+     * => will return 'bazz!'
+     * The same goes for any kind of object by its getter or public properties.
+     *
+     * @param array $path The path to the roperty
+     * @param array|object $target The array or object to retrieve the value from
+     * @return mixed The value or NULL if the property not accessable
      */
-    public function read(array $path, $target)
-    {
-        foreach ($path as $property) {
-            $value = null;
-
-            if (is_array($target)) {
-                $value = $this->getPropertyFromArray($property, $target);
-            } elseif (is_object($target)) {
-                $value = $this->getPropertyFromObject($property, $target);
-            }
-
-            if ($value===null) {
-                break;
-            }
-
-            $target = $value;
-        }
-
-        return isset($value) ? $value : null;
-    }
+    public function read(array $path, $target);
 }
