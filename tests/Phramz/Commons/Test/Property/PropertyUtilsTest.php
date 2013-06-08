@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Phramz. If not, see <http://www.gnu.org/licenses/lgpl.txt>.
  */
-namespace Phramz\Commons\Test;
+namespace Phramz\Commons\Test\Property;
 
 use Phramz\Commons\Property\PropertyUtils;
 use Phramz\Commons\Test\AbstractTestCase;
