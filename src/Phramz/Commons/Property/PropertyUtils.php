@@ -140,6 +140,6 @@ class PropertyUtils extends AbstractPropertyAccess
      */
     public function escape($value)
     {
-        return str_replace('.', '\\', $value);
+        return str_replace('.', '\\.', $value);
     }
 }
