@@ -131,4 +131,15 @@ class PropertyUtils extends AbstractPropertyAccess
     {
         return parent::parsePropertyPath($propertyPath);
     }
+
+    /**
+     * Escapes a string
+     *
+     * @param string $value
+     * @return string
+     */
+    public function escape($value)
+    {
+        return str_replace('.', '\\', $value);
+    }
 }
